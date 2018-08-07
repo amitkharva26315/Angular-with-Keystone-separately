@@ -1,0 +1,54 @@
+{% import "mixins/flash-messages.html" as FM %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Angular</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/Angular/favicon.ico">
+</head>
+
+<body>
+    {# HEADER #}
+		<div id="header" class="container">
+			<div role="navigation" class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/">KeystoneApp</a>
+					</div>
+					<div class="collapse navbar-collapse">					
+						<ul class="nav navbar-nav navbar-right">
+							{% if user %}
+								{% if user.canAccessKeystone %}
+								<li><a href="/keystone">Open Keystone</a></li>
+								{% endif %}
+								<li><a href="/keystone/signout">Sign Out</a></li>
+							{% else %}
+								<li><a href="/keystone/signin">Sign In</a></li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+  <h2>Angular app</h2>
+  <app-root></app-root>
+  <script type="text/javascript" src="/Angular/runtime.js"></script>
+  <script type="text/javascript" src="/Angular/polyfills.js"></script>
+  <script type="text/javascript" src="/Angular/styles.js"></script>
+  <script type="text/javascript" src="/Angular/vendor.js"></script>
+  <script type="text/javascript" src="/Angular/main.js"></script>
+</body>
+
+</html>
